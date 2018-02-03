@@ -1,7 +1,6 @@
 #include "Alloc.h"
 
 int main(void){
-<<<<<<< HEAD
 	int M = 10000;
 	int* in;
 	do{
@@ -13,10 +12,4 @@ int main(void){
 
 }while(in != NULL);
 return 0;
-=======
-	lpalloc();	
-
-
-
->>>>>>> ae031808b0cdb05c0c1fb9e955268519e4ee90ce
 }
