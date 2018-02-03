@@ -1,0 +1,6 @@
+credit: credit.out creditTest.out
+	gcc credit.out creditTest.out -o credit
+credit.out: credit.c credit.h
+	gcc -c credit.c
+creditTest.out: creditTest.c credit.h
+	gcc -c creditTest.c
