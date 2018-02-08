@@ -1,0 +1,7 @@
+Merge.out: Merge.c MergeSort.h
+gcc -c Merge.c
+
+MergeSortTest.out: MergeSortTest.c MergeSort.h
+gcc -c MergeSortTest.c
+
+ 
