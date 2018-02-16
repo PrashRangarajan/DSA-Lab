@@ -1,7 +1,6 @@
-Merge.out: Merge.c MergeSort.h
-gcc -c Merge.c
-
+makeMerge : Merge.out MergeSortTest.out
+	gcc Merge.out MergeSortTest.out -o Merge
+Merge.out : Merge.c MergeSort.h
+	gcc -c Merge.c -o Merge.out
 MergeSortTest.out: MergeSortTest.c MergeSort.h
-gcc -c MergeSortTest.c
-
- 
+	gcc -c MergeSortTest.c -o MergeSortTest.out
