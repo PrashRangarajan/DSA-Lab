@@ -1,8 +1,7 @@
-QS: QuickSort.o QuickSortTest.o
-	gcc -g QuickSort.o QuickSortTest.o -o QuickSort;
+hash: hash.o hashTest.o
+	gcc -g hash.o hashTest.o -o hash
 
-QuickSort.o: QuickSort.c QuickSort.h
-	gcc -c -g QuickSort.c -o QuickSort.o;
-
-QuickSortTest.o: QuickSortTest.c QuickSort.h 
-	gcc -c -g QuickSortTest.c -o QuickSortTest.o; 
+hash.o: hash.c hash.h
+	gcc -g -c hash.c
+hashTest.o: hashTest.c hash.h
+	gcc -g -c hashTest.c	
