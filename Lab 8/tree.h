@@ -17,6 +17,10 @@ Tree* createNode(root rt, Tree* lf, Tree* rg);
 Tree* add(Tree* t, root rt);
 Tree* find(Tree* t, root rt);
 void inOrder(Tree* t);
+Tree* inOrderSucc(Tree* t);
+Tree* delete(Tree* t, root node);
+Tree* rotate(Tree* t, Tree* X, Tree* Y, Tree* Z, Tree* W);
+
 
 
 

@@ -1,0 +1,8 @@
+QS: QuickSort.out QuickSortTest.out
+	gcc -g QuickSort.out QuickSortTest.out -o QuickSort;
+
+QuickSort.out: QuickSort.c QuickSort.h
+	gcc -c -g QuickSort.c -o QuickSort.out;
+
+QuickSortTest.out: QuickSortTest.c QuickSort.h 
+	gcc -c -g QuickSortTest.c -o QuickSortTest.out; 

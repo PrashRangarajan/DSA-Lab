@@ -129,7 +129,7 @@ void mergeFiles(FILE* fp1, FILE* fp2, FILE* fout){
 			writeFile(fout,el1,1);
 			el1 = readFile(fp1,el1,1);
 			if (feof(fp1)){
-			   writeFile(fout, el1, 1);
+			   //writeFile(fout, el1, 1);
 			   break;
 			 }   
 			}
@@ -137,7 +137,7 @@ void mergeFiles(FILE* fp1, FILE* fp2, FILE* fout){
 			writeFile(fout,el2,1);
 			el2 = readFile(fp2,el2,1);
 			if (feof(fp2)){
-			   writeFile(fout, el1, 1);
+			   //writeFile(fout, el1, 1);
 			   break;
 			}
 		}

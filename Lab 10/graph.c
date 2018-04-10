@@ -20,11 +20,12 @@ Vertex* getAdjacent (Graph* g, Vertex v){
 	int val = getval(v);
 	int cnt = degree(g, v);
 	Vertex* vArr = (Vertex*)malloc(cnt*sizeof(Vertex));
-	for (int i=0; i<cnt; i++){
+	int j =0;
+	for (int i=0; i<g->numVert; i++){
 		if(g->Matrix[val][i] == 1){
 			Vertex *v2 = (Vertex*)malloc(sizeof(Vertex));;
 			v2->val = i;
-			vArr[i] = *v2;
+			vArr[j++] = *v2;
 			}
 		}
 	return vArr;
@@ -73,15 +74,15 @@ Boolean bfs(Graph* g, Vertex v, Vertex tf){
 		q = delQ(q);
 		Vertex* vArr = getAdjacent(g, u);
 		int deg = degree(g, v);
-		int i;
+		int i, valw;
 		for (i= 0; i < deg; i++){
-		if (visited[val][i] == false){
-			if (!visitVert[i]){
-				visitVert[i] = true;
-				visited[val][i] = true;
+			valw = getval(vArr[i]);
+		if (visited[val][valw] == false){
+			if (!visitVert[valw]){
+				visitVert[valw] = true;
+				visited[val][valw] = true;
 			Vertex *v2 = (Vertex*)malloc(sizeof(Vertex));
-			v2->val = i;
-			vArr[i] = *v2;
+			v2->val = valw;
 			q = addQ(q, *v2);
 			if (getval(*v2) == getval(tf))
 			return true;
