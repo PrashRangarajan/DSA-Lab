@@ -1,7 +1,7 @@
 #include "edge.h"
 
 int main(void){
-	FILE* fp = fopen("graph0.txt", "r");
+	FILE* fp = fopen("citation0.txt", "r");
 	Graph* g = readFile(fp);	
 	int i;
 	printf("Set of edges:\n");
@@ -13,6 +13,7 @@ int main(void){
 	for (i=0; i<g->numV; i++)
 		printf("%d Deg:%d\n", g->Vlist[i], da[i]);
 	int* sorted = topoSort(g);
+	printf("Vertices after topological sort:\n");
 	for (i=0; i<g->numV; i++)
 		printf("%d \n", sorted[i]);
 

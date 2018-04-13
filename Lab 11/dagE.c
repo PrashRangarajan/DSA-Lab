@@ -4,12 +4,16 @@ Graph* readFile(FILE* fp){
 	Graph* g = (Graph*)malloc(sizeof(Graph));
 	g->numV = 0;
 	g->numE = 0;
-	g->Elist = (Edge*)malloc(1000*sizeof(Edge));
-	g->Vlist = (Vertex*)malloc(1000*sizeof(Vertex));
+	g->Elist = (Edge*)malloc(1000000*sizeof(Edge));
+	g->Vlist = (Vertex*)malloc(1000000*sizeof(Vertex));
 	Edge* e;
 	int val1, val2, i;
 	int vnum = 0;
+	char line[100];
 	Vertex *v1, *v2;
+	for(i=0; i < 4; i++)
+		fgets(line, 100, fp);
+
 	for(i=0; !feof(fp); i++){
 		e = (Edge*)malloc(sizeof(Edge));
 		fscanf(fp,"%d %d\n", &val1, &val2);
@@ -84,13 +88,15 @@ Vertex* topoSort(Graph* g){
 
 	int* indg = indeg(g);
 	int i, j, num=0;
-	for(i=0; i<g->numV; i++){
-		if (indg[i] == 0){
-			v=insert(v,&g->Vlist[i], num++);
-			indg[i] = -1;
-			for(j=0; j<g->numE; j++){
-				if (*(g->Elist[i].v1) == g->Vlist[i]){
-				indg[find(g->Vlist, *(g->Elist[i].v2), g->numV)]--;
+	while(num < g->numV){
+		for(i=0; i<g->numV; i++){
+			if (indg[i] == 0){
+				v[num++] = g->Vlist[i];
+				indg[i] = -1;
+				for(j=0; j<g->numE; j++){
+					if (*(g->Elist[j].v1) == g->Vlist[i]){
+					indg[find(g->Vlist, *(g->Elist[j].v2), g->numV)]--;
+					}
 				}
 			}
 		}
