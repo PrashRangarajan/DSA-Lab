@@ -8,6 +8,7 @@ struct Tree{
 	struct Tree* left;
 	struct Tree* right;
 	int bal:2;
+	int ht;
 };
 typedef struct Tree Tree;
 
@@ -20,7 +21,9 @@ void inOrder(Tree* t);
 Tree* inOrderSucc(Tree* t);
 Tree* delete(Tree* t, root node);
 Tree* rotate(Tree* t, Tree* X, Tree* Y, Tree* Z, Tree* W);
-
+int height(Tree* t);
+int getBal(Tree* t);
+int max(int a, int b);
 
 
 

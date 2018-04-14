@@ -9,11 +9,12 @@ int main(void){
 		t = add(t, val);
 	}
 	printf("%d\n", t->right->val);
-	printf("Found: %d\n", find(t, 163)->val);
+	//printf("Found: %d\n", find(t, 168)->val);
 	inOrder(t);
-	printf("\n\n\n");
-	inOrder(delete(t, 163));
-	//t = rotate(t, find(t, 168), find(t, 160), find(t, 159), find(t, 157)); 
+//	printf("\n\n\n");
+	//inOrder(delete(t, 163));
+	find(t, 157);
+//	t = rotate(t, find(t, 168), find(t, 160), find(t, 159), find(t, 157)); 
 
 
 

@@ -10,31 +10,21 @@ Tree* createNode(root rt, Tree* lf, Tree* rg){
 		t->val = rt;
 		t->left = lf;
 		t->right = rg;
-		int bal = 0;
+		t->bal = 0;
+		t->ht = 1;
 		return t;
 }	
 Tree* add(Tree* t, root rt){
 	if (t == NULL)
-	{
 		return createNode(rt, NULL, NULL);
-	}
-	if (t->val < rt){
-		if (t->right == NULL){
-			t->right = createNode(rt, NULL, NULL);
-			}
-		else{
-			add(t->right, rt);
-		}		
-	}
-	else{
-		if (t->left == NULL){
-			t->left = createNode(rt, NULL, NULL);
-			}
-		else
-			add(t->left, rt);
-	}
-		
-
+	
+	if (t->val < rt)
+		t->right = add(t->right,rt);
+	else
+		t->left = add(t->left, rt);	
+	
+	t->height = 1 + max(height(t->left), height(t->right));
+	int bal = getBal(t);
 	return t;
 
 }
@@ -125,7 +115,7 @@ Tree* delete(Tree* t, root node){
 	root succ_val = succ->val;
 	t = delete(t, succ->val);
 	succ = createNode(succ_val, temp->left, temp->right);
-	find(t, succ->val);
+//	find(t, succ->val);
 	if (parent->left == temp)
 		parent->left = succ;
 	else
@@ -184,4 +174,19 @@ Tree* rotate(Tree* t, Tree* X, Tree* Y, Tree* Z, Tree* W){
 	return t;
 }	
 
+int height(Tree* t){
+	if (t == NULL)
+		return 0;
+	else
+		return t->ht;
+}
 
+int getBal(Tree* t){
+	if (t == NULL) return 0;
+	return height(t->left) - height(t->right);
+}
+
+int max(int a, int b)
+{
+	return (a>b) ? a : b;
+}
